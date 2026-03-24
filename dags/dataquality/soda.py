@@ -11,7 +11,7 @@ def yt_elt_data_quality(schema):
     try:
         task = BashOperator(
             task_id=f"debug_test_{schema}",
-            bash_command=f"soda scan -d {DATASOURCE} -c {SODA_PATH}/configuration.yml -V SCHEMA={schema} {SODA_PATH}/checks.yml",
+            bash_command=f"soda scan -d {DATASOURCE} -c {SODA_PATH}/configuration.yml -v SCHEMA={schema} {SODA_PATH}/checks.yml",
         )
         return task
     except Exception as e:
